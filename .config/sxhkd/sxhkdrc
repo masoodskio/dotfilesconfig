@@ -1,0 +1,99 @@
+# The Simple X Hotkey Daemon is the program used to map wm-independent commands.  
+
+# The keys bound here are only letter keys except: b, f, h, j, k, l, q, s. t, z 
+
+# Basic binds
+super + Return
+	$TERMINAL
+super + d
+	dmenu_run
+super + w
+	$BROWSER
+super + r
+	$TERMINAL -e $FILE
+super + e
+	$TERMINAL -e neomutt
+super + n
+	$TERMINAL -e newsboat
+super + c
+	$TERMINAL -e calcurse -D ~/.config/calcurse
+super + shift + a
+	$TERMINAL -e alsamixer
+super + shift + g
+	gimp
+
+# Et cetera...
+super + grave
+	dmenuunicode
+super + Scroll_Lock
+	killall screenkey || screenkey
+super + Insert
+	showclip
+super + shift + x
+	prompt "Shutdown computer?" "sudo -A shutdown -h now"
+super + shift + BackSpace
+	prompt "Reboot computer?" "sudo -A shutdown -r now"
+super + shift + Escape
+	prompt 'Leave Xorg?' 'killall Xorg'
+super + x
+	ifinstalled slock && ( slock & xset dpms force off ; mpc pause ; pauseallmpv )
+XF86Launch1
+	xset dpms force off
+XF86TouchpadToggle
+	(synclient | grep "TouchpadOff.*1" && synclient TouchpadOff=0)>/dev/null || synclient TouchpadOff=1
+XF86Touchpad{Off,On}
+	synclient TouchpadOff={1,0}
+
+# Recording
+# Take screenshot
+Print
+	maim pic-full-$(date '+%y%m%d-%H%M-%S').png
+# Pick screenshot type
+shift + Print
+	maimpick
+
+# Audiokeys
+XF86AudioMute
+	amixer sset Master toggle
+XF86Audio{Raise,Lower}Volume
+	amixer sset Master 5%{+,-}
+
+XF86PowerOff
+	prompt "Shutdown computer?" "sudo -A shutdown -h now"
+XF86Calculator
+	$TERMINAL -e bc
+XF86Sleep
+	prompt 'Hibernate computer?' 'sudo -A zzz'
+XF86WWW
+	$BROWSER
+XF86DOS
+	$TERMINAL
+#XF86ScreenSaver
+	
+XF86TaskPane
+	$TERMINAL -e htop
+XF86Mail
+	$TERMINAL -e neomutt
+XF86MyComputer
+	$TERMINAL -e $FILE /
+
+# Change display
+super + F3
+	displayselect
+# Hibernate
+super + F4
+	prompt 'Hibernate computer?' 'sudo -A zzz'
+super + F5
+	$TERMINAL -e nmtui
+# Start torrent daemon/open interface
+super + F6
+	torwrap
+# toggle torrent daemon
+super + F7
+	td-toggle
+# sync email
+super + F8
+	mailsync
+# Mount a USB drive or Android device
+super + {F9,F10}
+	{dmenumount,dmenuumount}

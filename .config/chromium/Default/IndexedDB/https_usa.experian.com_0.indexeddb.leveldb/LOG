@@ -1,9 +1,0 @@
-2018/08/14-20:26:06.052 3256 Reusing MANIFEST /home/aries/.config/chromium/Default/IndexedDB/https_usa.experian.com_0.indexeddb.leveldb/MANIFEST-000001
-2018/08/14-20:26:06.526 2843 Current memtable full; waiting...
-2018/08/14-20:26:06.526 3840 Level-0 table #5: started
-2018/08/14-20:26:06.568 3840 Level-0 table #5: 400 bytes OK
-2018/08/14-20:26:06.626 3840 Delete type=0 #3
-2018/08/14-20:26:06.627 3840 Level-0 table #7: started
-2018/08/14-20:26:06.627 3840 Level-0 table #7: 0 bytes OK
-2018/08/14-20:26:06.668 3840 Delete type=0 #4
-2018/08/14-20:26:06.668 3840 Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)

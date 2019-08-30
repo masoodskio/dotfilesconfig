@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# This file runs when a DM logs you into a graphical session.
+
+setbg &			# set the background with the `setbg` script
+compton &		# xcompmgr for transparency
+dwmbar &		# script for updating the status bar
+dunst &			# dunst for notifications
+sxhkd &			# Bind keys with sxhkd
+unclutter &		# Remove mouse when idle
+
+# Set Caps to Mod/Escape
+setxkbmap -option caps:super && killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape' &
+# Properties button extra Mod/Escape
+xmodmap -e 'keycode 135 = Super_R' &
+
