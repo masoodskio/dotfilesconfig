@@ -3,7 +3,7 @@
 # Profile file. Runs on login. Environmental variables are set here.
 
 # Adds `~/.local/bin` to $PATH
-export PATH="$PATH:$HOME/.local/bin/"
+export PATH="$PATH:$(find "$HOME/.local/bin/" -type d | paste -sd:)"
 
 # Default programs:
 export EDITOR="vim"
