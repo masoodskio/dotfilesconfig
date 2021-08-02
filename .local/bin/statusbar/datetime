@@ -1,0 +1,11 @@
+#!/bin/bash
+caldendar=" " 
+getdate=$(date '+%A %b %r')
+date="$calender$getdate"
+
+colorb=$(xrdb -query | grep '*color12'| awk '{print $NF}')
+colorf=$(xrdb -query | grep '*color0'| awk '{print $NF}')
+
+
+echo "<span background=\""$colorb"\" foreground=\""$colorf"\">"$date"</span>"
+
